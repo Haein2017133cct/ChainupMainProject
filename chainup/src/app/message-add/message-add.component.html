@@ -1,0 +1,111 @@
+
+    <div class="container" id="service">
+        <h3 class=" text-center" style="padding-top: 100px;"> Text Hosting Service </h3>
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="inbox_people">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4> Find your message</h4>
+                        </div>
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <input type="text" class="search-bar" id="searchtxt" placeholder="Search">
+
+                                <span class="input-group-addon">
+                                    <button type="button" onClick="replaceText();" id="highlightButton"> 
+                                        <i class="fa fa-search" aria-hidden="true"></i> </button>
+                                </span>
+                            </div>
+                            <ul class="list-group" id="result"></ul>
+                        </div>
+                    </div>
+
+                    <div class="inbox_chat">
+                        <!-- Message -->
+                        <div>
+                            <!-- Message: body -->
+                            <div class="message-body">
+                                <!-- Message: row -->
+                                <div class="message-row">
+                                    <div class="d-flex align-items-center" id="msgcontent">
+                                        <!-- Message: content -->
+                                        <ul   id="contents_text" >
+                                           <li *ngFor="let message of messages" >
+                                            <div class="block">
+                                            <h6 class="mb-2 content" id="test">{{ message.name }}</h6>
+                                                <div class = bubble>
+                                                    <div>{{ message.text }}</div>
+                                                    <div class="mt-1">';
+                                                    <small class="opacity-65">{{ message.time }}</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </li>
+                                          
+                                           
+                                          <!-- Message: content -->
+                                        </ul>
+                      
+                                    </div>
+                                </div>
+                                <!-- Message: row -->
+
+                            </div>
+                            <!-- Message: Body -->
+                        </div>
+                        <!-- Message -->
+                    </div>
+                </div>
+
+
+
+									
+                <div class="mesgs">
+                    <div class="msg_history">
+                    <!-- //    <form (ngSubmit)="saveMessage()" #bookForm="ngForm"> -->
+
+                        <p>Enter your text below and it will be uploaded with your name (50000 character limit)</p>
+                        <form id="messageAdd" class="form_aligned" >
+
+
+                            <input type="hidden" value="" name="id_save">
+                            <textarea name="text" placeholder="Enter text" id="messageText"   required="" spellcheck="false"></textarea>
+
+                        <!-- <textarea name="text" placeholder="Enter text" id="messageText"   [(ngModel)]="message.text" required="" spellcheck="false"></textarea> -->
+                        <p><b>Name :</b></p>
+                        <input type="text" id="messageName" class="field" name="name"   placeholder="Enter name" value=""  required>
+                        <!-- <input type="text" id="messageName" class="field" name="name"  [(ngModel)]="message.name"  placeholder="Enter name" value=""  required> -->
+
+                        <br>
+
+
+                        <br>
+                        <div class="g-recaptcha" style="background-color: #F0484F;"
+                            data-sitekey="6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr">
+                            <div style="width: 304px; height: 78px; background-color: #F0484F;">
+                                <div>
+                                    <iframe
+                                        src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr&amp;co=aHR0cHM6Ly93d3cudHJhZmYuY286NDQz&amp;hl=en&amp;v=P6KLRNy7h3K160ZmYNUOAce7&amp;size=normal&amp;cb=c8jv8f26qtnl"
+                                        width="304" height="78" role="presentation" name="a-eoxab2qf4g6n"
+                                        frameborder="0" scrolling="no"
+                                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox">
+                                    </iframe>
+                                </div>
+                                <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                                    class="g-recaptcha-response"
+                                    style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
+                                </textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Host my text</button>
+                        </form>
+                    </div>
+               
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
