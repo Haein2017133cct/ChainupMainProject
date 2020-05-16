@@ -59,29 +59,27 @@
                 </div>
 
 
-
 									
                 <div class="mesgs">
                     <div class="msg_history">
                     <!-- //    <form (ngSubmit)="saveMessage()" #bookForm="ngForm"> -->
 
                         <p>Enter your text below and it will be uploaded with your name (50000 character limit)</p>
-                        <form id="messageAdd" class="form_aligned" >
-
+                 <form id="messageAdd" class="form_aligned" (ngSubmit)="saveMessage()" >
 
                             <input type="hidden" value="" name="id_save">
-                            <textarea name="text" placeholder="Enter text" id="messageText"   required="" spellcheck="false"></textarea>
+                            <textarea name="text" placeholder="Enter text" id="messageText"  required="" spellcheck="false"></textarea>
 
                         <!-- <textarea name="text" placeholder="Enter text" id="messageText"   [(ngModel)]="message.text" required="" spellcheck="false"></textarea> -->
                         <p><b>Name :</b></p>
-                        <input type="text" id="messageName" class="field" name="name"   placeholder="Enter name" value=""  required>
+                        <input type="text" id="messageName" class="field" name="name" placeholder="Enter name" value=""  required>
                         <!-- <input type="text" id="messageName" class="field" name="name"  [(ngModel)]="message.name"  placeholder="Enter name" value=""  required> -->
 
                         <br>
 
 
                         <br>
-                        <div class="g-recaptcha" style="background-color: #F0484F;"
+                        <!-- <div class="g-recaptcha" style="background-color: #F0484F;"
                             data-sitekey="6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr">
                             <div style="width: 304px; height: 78px; background-color: #F0484F;">
                                 <div>
@@ -97,9 +95,9 @@
                                     style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
                                 </textarea>
                             </div>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn">Host my text</button>
-                        </form>
+                    </form>
                     </div>
                
 

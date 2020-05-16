@@ -26,13 +26,12 @@ export class MessageAddComponent implements OnInit {
  
 
 
- 
-  saveMessage() {
   
+  saveMessage() {  
   this.http.post('/message', this.message)
     .subscribe(res => {
         let id = res['_id'];
-       this.ngOnInit();
+     //  this.ngOnInit();
 
       }, (err) => {
         console.log(err);

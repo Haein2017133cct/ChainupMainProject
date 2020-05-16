@@ -26,7 +26,7 @@ exports.getMessageByName = function(req, res){
     })
   };
 
-/* create a book */
+/* create a message */
 exports.createMessage = function(req, res, next) {
   MSG.create(req.body, function (err, post) {
     if (err) return next(err);

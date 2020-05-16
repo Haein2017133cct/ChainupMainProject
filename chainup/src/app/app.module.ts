@@ -32,12 +32,13 @@ const appRoutes: Routes = [
 
   ],
   imports: [
+ 
     HttpClientModule,
     BrowserModule,
      AppRoutingModule,
     RouterModule.forRoot(
       appRoutes,
-    { enableTracing:false, useHash: true } // <-- debugging purposes only
+    { enableTracing:true, useHash: true } // <-- debugging purposes only
   )
   
 ],

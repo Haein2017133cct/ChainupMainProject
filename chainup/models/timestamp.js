@@ -6,4 +6,4 @@ var timeSchema = new mongoose.Schema({
     updated_date: { type: Date, default: Date.now },
   });
 
-  module.exports = mongoose.model('timestamp', timeSchema);
+  module.exports = mongoose.model('message', timeSchema);
