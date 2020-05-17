@@ -30,16 +30,12 @@ export class MessageAddComponent implements OnInit {
       this.message = data;
     });
   }
-
-
   
   saveMessage() {  
-
   this.http.post('/message', this.message)
     .subscribe(res => {
         let id = res['_id'];
        this.ngOnInit();
-
       }, (err) => {
         console.log(err);
       }
