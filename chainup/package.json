@@ -2,8 +2,9 @@
   "name": "chainup",
   "version": "0.0.0",
   "scripts": {
+    "heroku-postbuild": "ng build --prod",
     "ng": "ng",
-    "start": "ng build && node ./bin/www",
+    "start": "node ./bin/www",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -12,8 +13,10 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.1.6",
+    "@angular/cli": "~9.1.5",
     "@angular/common": "~9.1.6",
     "@angular/compiler": "~9.1.6",
+    "@angular/compiler-cli": "~9.1.6",
     "@angular/core": "~9.1.6",
     "@angular/forms": "~9.1.6",
     "@angular/platform-browser": "~9.1.6",
@@ -24,12 +27,14 @@
     "dotenv": "^8.2.0",
     "env": "0.0.2",
     "express": "^4.17.1",
+    "heroku": "^7.41.1",
     "mongodb": "^3.5.7",
     "mongoose": "^5.9.13",
     "morgan": "^1.10.0",
     "rxjs": "~6.5.4",
     "serve-favicon": "^2.5.0",
     "tslib": "^1.10.0",
+    "typescript": "~3.8.3",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
@@ -51,5 +56,9 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "engines": {
+    "node": "12.16.2",
+    "npm": "6.14.4"
   }
 }
