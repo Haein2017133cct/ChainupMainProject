@@ -22,16 +22,23 @@ export class MessageAddComponent implements OnInit {
     this.http.get('/message').subscribe(data => {
       this.messages = data;
     });
+
   }
- 
+  getMSGbyName(name) {
+    this.http.get('/message/name/'+name)
+    .subscribe(data => {
+      this.message = data;
+    });
+  }
 
 
   
   saveMessage() {  
+
   this.http.post('/message', this.message)
     .subscribe(res => {
         let id = res['_id'];
-     //  this.ngOnInit();
+       this.ngOnInit();
 
       }, (err) => {
         console.log(err);

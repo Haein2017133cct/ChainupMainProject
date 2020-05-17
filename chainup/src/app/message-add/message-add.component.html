@@ -10,12 +10,17 @@
                         </div>
                         <div class="srch_bar">
                             <div class="stylish-input-group">
-                                <input type="text" class="search-bar" id="searchtxt" placeholder="Search">
+                                <form class="needs-validation"(ngSubmit)="getMSGbyName(name.value)" #searchForm="ngForm"
+                                class="needs-validation" novalidate>
+                                <input type="text" class="search-bar" id="searchtxt"#name placeholder="Search" required>
 
                                 <span class="input-group-addon">
-                                    <button type="button" onClick="replaceText();" id="highlightButton"> 
-                                        <i class="fa fa-search" aria-hidden="true"></i> </button>
+                                    <button type="button" id="highlightButton"> 
+                                        <i class="fa fa-search" aria-hidden="true"></i> 
+                                    </button>
                                 </span>
+                                </form>
+                            
                             </div>
                             <ul class="list-group" id="result"></ul>
                         </div>
@@ -36,8 +41,8 @@
                                             <h6 class="mb-2 content" id="test">{{ message.name }}</h6>
                                                 <div class = bubble>
                                                     <div>{{ message.text }}</div>
-                                                    <div class="mt-1">';
-                                                    <small class="opacity-65">{{ message.time }}</small>
+                                                    <div class="mt-1">
+                                                    <small class="opacity-65">{{ message.updated_date }}</small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,25 +66,27 @@
 
 									
                 <div class="mesgs">
+                    <form id="messageAdd" class="form_aligned" (ngSubmit)="saveMessage()" >
+
                     <div class="msg_history">
                     <!-- //    <form (ngSubmit)="saveMessage()" #bookForm="ngForm"> -->
 
                         <p>Enter your text below and it will be uploaded with your name (50000 character limit)</p>
-                 <form id="messageAdd" class="form_aligned" (ngSubmit)="saveMessage()" >
 
                             <input type="hidden" value="" name="id_save">
-                            <textarea name="text" placeholder="Enter text" id="messageText"  required="" spellcheck="false"></textarea>
+                            <textarea name="text" placeholder="Enter text" [(ngModel)]="message.text"id="messageText"  required="" spellcheck="false"></textarea>
 
                         <!-- <textarea name="text" placeholder="Enter text" id="messageText"   [(ngModel)]="message.text" required="" spellcheck="false"></textarea> -->
-                        <p><b>Name :</b></p>
-                        <input type="text" id="messageName" class="field" name="name" placeholder="Enter name" value=""  required>
+                        <p><b>Name :</b>
+                        <input type="text" id="messageName"[(ngModel)]="message.name" class="field" name="name" placeholder="Enter name" value=""  required>
                         <!-- <input type="text" id="messageName" class="field" name="name"  [(ngModel)]="message.name"  placeholder="Enter name" value=""  required> -->
+                            </p>
 
                         <br>
 
 
                         <br>
-                        <!-- <div class="g-recaptcha" style="background-color: #F0484F;"
+                        <div class="g-recaptcha" style="background-color: #F0484F;"
                             data-sitekey="6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr">
                             <div style="width: 304px; height: 78px; background-color: #F0484F;">
                                 <div>
@@ -95,11 +102,11 @@
                                     style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
                                 </textarea>
                             </div>
-                        </div> -->
+                        </div>
                         <button type="submit" class="btn">Host my text</button>
-                    </form>
+                    
                     </div>
-               
+                </form>
 
                 </div>
             </div>

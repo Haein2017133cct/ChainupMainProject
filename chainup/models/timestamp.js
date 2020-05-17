@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var timeSchema = new mongoose.Schema({
     name: String,
     text: String,
-    time: String,
+  //  time: Date,
     updated_date: { type: Date, default: Date.now },
   });
 
