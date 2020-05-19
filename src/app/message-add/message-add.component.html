@@ -1,0 +1,138 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                 <!-- Modal -->
+
+  <div class="container" id="service">
+        <h3 class=" text-center" style="padding-top: 100px;"> Text Hosting Service </h3>
+        <div class="messaging">
+            <div class="inbox_msg">
+                <div class="inbox_people">
+                    <div class="headind_srch">
+                        <div class="recent_heading">
+                            <h4> Find your message</h4>
+                        </div>
+                        <div class="srch_bar">
+                            <div class="stylish-input-group">
+                                <form class="needs-validation"(click)="getMSGbyName(nameInput.value)" #searchForm="ngForm"
+                                class="needs-validation" novalidate>
+                                <input type="text" class="search-bar" id="searchtxt"#nameInput placeholder="Search" >
+                              <!-- //  <ngb-alert *ngIf="!staticAlertClosed" (close)="staticAlertClosed = true">Check out our awesome new features!</ngb-alert> -->
+                                <span class="input-group-addon">
+                                    <button type="button" id="highlightButton"class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"> 
+                                        <i class="fa fa-search" aria-hidden="true"></i> 
+                                    </button>
+                                </span>
+                                </form>
+                            
+                            </div>
+                        </div>
+                    </div>
+ <!-- Modal -->
+ <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Search Result</h4>
+          <button type="button" class="close" data-dismiss="modal" style="float: left;">&times;</button>
+          
+        </div>
+        <div class="modal-body" >
+            <ul *ngFor="let calledmessage of calledmessages" style="margin-left :-20px">
+                <li>Author : {{ calledmessage.name }} <br> Message : {{ calledmessage.text }} <br> time : {{ calledmessage.updated_date }} </li>
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"style="float :center">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+                    <div class="inbox_chat">
+                        <!-- Message -->
+                        <div>
+                            <!-- Message: body -->
+                            <div class="message-body">
+                                <!-- Message: row -->
+                                <div class="message-row">
+                                    <div class="d-flex align-items-center" id="msgcontent">
+                                        <!-- Message: content -->
+                                        <ul   id="contents_text" >
+                                           <li *ngFor="let message of messages" >
+                                            <div class="block">
+                                            <h6 class="mb-2 content" id="test">{{ message.name }}</h6>
+                                                <div class = bubble>
+                                                    <div>{{ message.text }}</div>
+                                                    <div class="mt-1">
+                                                    <small class="opacity-65">{{ message.updated_date }}</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </li>
+                                          
+                                           
+                                          <!-- Message: content -->
+                                        </ul>
+                      
+                                    </div>
+                                </div>
+                                <!-- Message: row -->
+              
+                            </div>
+                            <!-- Message: Body -->
+                        </div>
+                        <!-- Message -->
+                    </div>
+                </div>
+
+
+									
+                <div class="mesgs">
+                    <form id="messageAdd" class="form_aligned" (ngSubmit)="saveMessage()" >
+
+                    <div class="msg_history">
+                    <!-- //    <form (ngSubmit)="saveMessage()" #bookForm="ngForm"> -->
+
+                        <p>Enter your text below and it will be uploaded with your name (50000 character limit)</p>
+
+                            <input type="hidden" value="" name="id_save">
+                            <textarea name="text" placeholder="Enter text" [(ngModel)]="message.text"id="messageText"  required="" spellcheck="false"></textarea>
+
+                        <!-- <textarea name="text" placeholder="Enter text" id="messageText"   [(ngModel)]="message.text" required="" spellcheck="false"></textarea> -->
+                        <br><br>
+                        <p><b>Name :</b>
+                        <input type="text" id="messageName"[(ngModel)]="message.name" class="field" name="name" placeholder="Enter name" value=""  required>
+                        <!-- <input type="text" id="messageName" class="field" name="name"  [(ngModel)]="message.name"  placeholder="Enter name" value=""  required> -->
+                            </p>
+                        <div class="g-recaptcha" style="background-color: #F0484F;"
+                            data-sitekey="6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr">
+                            <div style="width: 304px; height: 78px; background-color: #F0484F;">
+                                <div>
+                                    <iframe
+                                        src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LfMhY8UAAAAAHBwjXV3a8GhaoTd4piKUUjHHKNr&amp;co=aHR0cHM6Ly93d3cudHJhZmYuY286NDQz&amp;hl=en&amp;v=P6KLRNy7h3K160ZmYNUOAce7&amp;size=normal&amp;cb=c8jv8f26qtnl"
+                                        width="304" height="78" role="presentation" name="a-eoxab2qf4g6n"
+                                        frameborder="0" scrolling="no"
+                                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox">
+                                    </iframe>
+                                </div>
+                                <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                                    class="g-recaptcha-response"
+                                    style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;">
+                                </textarea>
+                            </div>
+                        </div>
+                        <p></p>
+                        <button type="submit" class="btn btn-outline-dark" style="float: right;">Host my text</button>
+                    
+                    </div>
+                </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
